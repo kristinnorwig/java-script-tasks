@@ -8,8 +8,8 @@ console.log(welcomeMsg("Jane"));
 
 //Aufgabe 2
 
-function calcGrossPrice(a, b) {
-  return a + a * b;
+function calcGrossPrice(netPrice, Tax) {
+  return netPrice + netPrice * Tax;
 }
 
 console.log(calcGrossPrice(20, 0.19));
