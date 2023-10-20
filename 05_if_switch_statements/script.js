@@ -31,8 +31,11 @@ console.log(result);
 // Aufgabe 2 oddEven function
 
 function oddEven(number) {
-  if ((number %= 2)) return "odd";
-  else return "even";
+  if ((number %= 2)) {
+    return "odd";
+  } else {
+    return "even";
+  }
 }
 
 console.log(oddEven(4));
