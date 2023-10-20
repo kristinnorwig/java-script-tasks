@@ -80,6 +80,7 @@ function oldYoung(age) {
 }
 
 /* Lösungs-Alernative: 
+
 function oldYoung(age) {
   if (typeof age !== "number" || age < 0){
     return "invalid parameter";
