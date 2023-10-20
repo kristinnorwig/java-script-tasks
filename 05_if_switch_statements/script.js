@@ -15,7 +15,7 @@ console.log(result);
 
 // Returns Greater than 10 but should return Greater than 20 */
 
-const size = 25;
+/*const size = 25;
 let result;
 
 if (size < 10) {
@@ -28,13 +28,28 @@ if (size < 10) {
 
 console.log(result);
 
+//falsch!!! Darauf achten, dass auch die anderen Fälle funktionieren! */
+
+const sizeCorrect = 25;
+let resultCorrect;
+
+if (sizeCorrect > 20) {
+  resultCorrect = "Greater than 20";
+} else if (sizeCorrect < 10) {
+  resultCorrect = "Greater than 20";
+} else {
+  resultCorrect = "Lower than 10";
+}
+
+console.log(resultCorrect);
+
 // Aufgabe 2 oddEven function
 
 function oddEven(number) {
-  if ((number %= 2)) {
-    return "odd";
-  } else {
+  if (number % 2 === 0) {
     return "even";
+  } else {
+    return "odd";
   }
 }
 
@@ -63,6 +78,23 @@ function oldYoung(age) {
     return "invalid parameter";
   }
 }
+
+/* Lösungs-Alernative: 
+function oldYoung(age) {
+  if (typeof age !== "number" || age < 0){
+    return "invalid parameter";
+  }
+
+  if (age < 16) {
+    return "children";
+  } else if (age < 50){
+    return "young person";
+  } else {
+    return "elder person";
+  }
+}
+
+*/
 
 console.log(oldYoung(27));
 // result should be young person
