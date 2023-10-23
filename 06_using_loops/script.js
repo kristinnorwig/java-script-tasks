@@ -62,6 +62,11 @@ console.log(oddNumbers(9, 12));
 
 function charCount(word, char) {
   let count = 0;
+
+  /* if (char.length > 1) {
+    console.log("not allowed");
+  } */
+
   if (char.length === 1) {
     for (let i = 0; i < word.length; i++) {
       if (word.charAt(i) === char) {
