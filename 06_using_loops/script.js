@@ -109,6 +109,7 @@ function charCount(word, char) {
 
   if (char.length === 1) {
     for (let i = 0; i < word.length; i++) {
+      // for (erste Bedingung ist der Startwert; Bedingung (Endwert) = ist i auch kleiner als word.length;Operation = Schritte){dann wird Aktion in geschwungenen Klammern ausgefürt, so lange Bedingung erfüllt}
       if (word.charAt(i) === char) {
         count++;
       }
@@ -147,3 +148,34 @@ console.log(charCount("hello", "l"));
 console.log(charCount("mama", "m"));
 
 console.log(charCount("Resümee", "e"));
+
+// Aufgabe 2 Alternative 2
+// 1. Parameter: Ein Wort (String)
+// 2. Parameter: Ein Buchstabe (String)
+// Aufgabe: Wie oft kommt der Buchstabe (2. Parameter) im Wort (1. Parameter) vor?
+
+function charCount(word, char) {
+  if (char.length !== 1) {
+    return "two letters are not allowed";
+  }
+
+  let count = 0;
+
+  for (let i = 0; i < word.length; i++) {
+    // console.log(i, word[i]);
+
+    // Ist der derzeitige Buchstabe (word[i]) gleich mit char?
+
+    if (word[i].toUpperCase() === char.toUpperCase()) {
+      count++;
+    }
+  }
+
+  return count;
+}
+
+console.log(charCount("hello", "ll"));
+
+console.log(charCount("mama", "m"));
+
+console.log(charCount("ResümeE", "e"));
