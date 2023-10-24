@@ -5,8 +5,8 @@
  Ensure that the original array was not mutated.*/
 
 function removeItem(array, number) {
-  let newArray = structuredClone(array);
-  newArray.splice(number - 1, 1);
+  let newArray = structuredClone(array); //deep Copy
+  newArray.splice(number - 1, 1); // Start inklusive jew. Zahl bis zum 1 Element, da Start bei 0 ein Schritt zurück (-1)
   return newArray;
 }
 
