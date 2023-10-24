@@ -1,12 +1,13 @@
 // Aufgabe 1 Implement a removeItem function
-/* The first parameter is an array.
- The second parameter is a number. It's the non-zero-based index of the item that should get deleted.
- Remove the item and return an array.
- Ensure that the original array was not mutated.*/
+
+// Parameter 1: Ein Array
+// Parameter 2: eine Nummer
+// bei 1 anfangen, nicht 0!
+// Aufgabe: neues Array auf Basis des "alten" (Parameter 1) erstellen, indem der Inhalt der angegeben Stelle (Parameter 2) entfernt ist
 
 function removeItem(array, number) {
-  let newArray = structuredClone(array); //deep Copy
-  newArray.splice(number - 1, 1); // Start inklusive jew. Zahl bis zum 1 Element, da Start bei 0 ein Schritt zurück (-1)
+  const newArray = structuredClone(array); //deep Copy!!! mit CONST!!!
+  newArray.splice(number - 1, 1); // 1 Zahl = was löschen (also Startpunkt), 2 Zahl = wie viel, da Start bei 0 ein Schritt zurück (-1), um von zero-based zu non-zero-based "-1" rechnen!!!
   return newArray;
 }
 
@@ -24,17 +25,19 @@ console.log(removeItem(fruits, 3));
 console.log(fruits);
 // result: ["Watermelon", "Banana", "Cherry", "Kiwi", "Pineapple", "Apple"]
 
-//Aufgabe 2 Implement a sumOfCharacters function.
+//Aufgabe 2 Implement a sumOfCharacters function
 
-/* The function has one parameter, which is an array.
- Check the type of each array entry. If it's a string then store the count of characters.
- The function returns the total sum of all characters.*/
+// nur ein Parameter: Ein Array
+// welcher Array-Eintrag ist ein String?
+// zähle die Buchstaben der vorhandenen Strings
+// die Funktion soll alle Buchstaben des jew. Arrays ausgeben
 
 function sumOfCharacters(array) {
   let count = 0;
   for (let index = 0; index < array.length; index++) {
     if (typeof array[index] === "string") {
       // Typ-Abfrage
+      // INDEX!!!!
       count += array[index].length; // Alternativ: count = count + array[index].length
     }
   }
