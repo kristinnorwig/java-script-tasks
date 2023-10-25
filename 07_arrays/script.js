@@ -7,7 +7,7 @@
 
 function removeItem(array, number) {
   const newArray = structuredClone(array); //deep Copy!!! mit CONST!!!
-  newArray.splice(number - 1, 1); // 1 Zahl = was löschen (also Startpunkt), 2 Zahl = wie viel, da Start bei 0 ein Schritt zurück (-1), um von zero-based zu non-zero-based "-1" rechnen!!!
+  newArray.splice(number - 1, 1); // 1 Zahl = was löschen (also Startpunkt), 2 Zahl = wie viel, da Start bei 0 ein Schritt zurück (-1), also Zuordnung Zahlen-Reihenfolge zu Array-Inhalt eine Pos. zurück (nach links) schieben, um von zero-based zu non-zero-based!!!
   return newArray;
 }
 
@@ -25,12 +25,34 @@ console.log(removeItem(fruits, 3));
 console.log(fruits);
 // result: ["Watermelon", "Banana", "Cherry", "Kiwi", "Pineapple", "Apple"]
 
-//Aufgabe 2 Implement a sumOfCharacters function
+// Aufgabe 1 Alternative
+
+function removeItem(arr, index) {
+  index = index - 1; // index ist jetzt zero-based
+
+  const newArr = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    const element = arr[i];
+
+    if (index !== i) {
+      newArr.push(element);
+    }
+  }
+
+  return newArr;
+}
+
+const numbers = [50, 150, 250];
+
+console.log(removeItem(numbers, 3));
+
+// Aufgabe 2 Implement a sumOfCharacters function
 
 // nur ein Parameter: Ein Array
 // welcher Array-Eintrag ist ein String?
 // zähle die Buchstaben der vorhandenen Strings
-// die Funktion soll alle Buchstaben des jew. Arrays ausgeben
+// die Funktion soll alle Buchstaben der Strings des jew. Arrays ausgeben
 
 function sumOfCharacters(array) {
   let count = 0;
@@ -38,7 +60,7 @@ function sumOfCharacters(array) {
     if (typeof array[index] === "string") {
       // Typ-Abfrage
       // INDEX!!!!
-      count += array[index].length; // Alternativ: count = count + array[index].length
+      count += array[index].length; // Alternativ: count = count + array[index].length (das was es bisher ist + das was dazu kommt)
     }
   }
   return count;
@@ -57,3 +79,18 @@ const arr2 = [
 ];
 console.log(sumOfCharacters(arr2));
 // result: 55
+
+// Aufgabe 2 Alternative
+
+function sumOfCharacters(arr) {
+  let sum = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    const element = arr[i]; //arr[i] benennen erstellen für leichteren "Gebrauch"
+    if (typeof element === "string") {
+      sum += element.length; // sum = sum + element.length
+    }
+  }
+
+  return sum;
+}
